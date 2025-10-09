@@ -1,17 +1,18 @@
 // transactions will be pulled out of json file
 
 import React from 'react'
+import userData from '../data/transaction.json'
+import TransactionItems from './TransactionItems';
 
-function Transactions( transaction) {
+function Transactions() {
   return (
     <div>
       <h2>Transactions</h2>
       <p>Today</p>
       <div>
-        <div>
-          <p>{transaction.store}</p>
-          <p>{transaction.price}</p>
-        </div>
+        {userData.map((data) => (
+          <TransactionItems store={data.store} price={data.price} />
+        ))}
       </div>
     </div>
   );

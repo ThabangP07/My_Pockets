@@ -9,7 +9,7 @@ function App() {
     <>
       <h1>My Pockets</h1>
       <p>Personal Finance Tracker</p>
-      <Exchange />
+      <Transactions />
     </>
   );
 }
