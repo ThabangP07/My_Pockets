@@ -1,0 +1,7 @@
+
+[{ "store": "Amazon", "price": "R200.00" },
+ { "store": "Walmart", "price": "R150.00" },
+ { "store": "Ebay", "price": "R300.00" },
+ { "store": "Target", "price": "R400.00" },
+ { "store": "Best Buy", "price": "R250.00" }
+]
