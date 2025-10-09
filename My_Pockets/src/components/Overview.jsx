@@ -1,20 +1,12 @@
 import React from 'react'
 
-function Overview() {
+function Overview( prop) {
   return (
     <section>
       <h2>Overview</h2>
       <div>
-        <h3>Balance</h3>
-        <p>amount</p>
-      </div>
-      <div>
-        <h3>Income</h3>
-        <p>amount</p>
-      </div>
-      <div>
-        <h3>Expenses</h3>
-        <p>amount</p>
+        <h3>{prop.heading}</h3>
+        <p>{prop.amount}</p>
       </div>
     </section>
   )
