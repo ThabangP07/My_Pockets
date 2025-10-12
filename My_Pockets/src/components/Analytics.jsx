@@ -1,4 +1,5 @@
 import React from 'react'
+import AnalyticsChart from './AnalyticsChart'
 
 function Analytics() {
   return (
@@ -7,18 +8,10 @@ function Analytics() {
       <button>6 Months</button>
       <button>Year</button>
       <div>
-        <div>
-          // Chart Placeholder
-          <p>Month</p>
-        </div>
-        <div>
-          // Chart Placeholder
-          <p>Month</p>
-        </div>
-        <div>
-          // Chart Placeholder
-          <p>Month</p> // month Placeholder
-        </div>
+        <AnalyticsChart month="Jan" />
+        <AnalyticsChart month="Feb" />
+        <AnalyticsChart month="Mar" />
+        <AnalyticsChart month="Apr" />
       </div>
     </div>
   );
