@@ -2,8 +2,8 @@ import React from 'react'
 
 function TransactionItems({store, price}) {
   return (
-    <div>
-      <p>{store}</p>
+    <div className='flex justify-between space-y-2'>
+      <p className='font-bold '>{store}</p>
       <p>{price}</p>
     </div>
   );

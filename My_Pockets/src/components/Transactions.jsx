@@ -6,15 +6,15 @@ import TransactionItems from './TransactionItems';
 
 function Transactions() {
   return (
-    <div>
-      <h2>Transactions</h2>
+    <section className="border-2 rounded-2xl p-2 space-y-3">
+      <h2 className="font-bold text-2xl">Transactions</h2>
       <p>Today</p>
       <div>
         {userData.map((data) => (
           <TransactionItems store={data.store} price={data.price} />
         ))}
       </div>
-    </div>
+    </section>
   );
 }
 
