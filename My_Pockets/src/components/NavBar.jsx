@@ -2,9 +2,9 @@ import React from 'react'
 
 function NavBar() {
   return (
-    <nav>
-      <h1>MyPockets</h1>
-      <ul>
+    <nav className='bg-gray-600 border-2 rounded-2xl m-2'>
+      <h1 className='text-4xl m-2 py-7 text-orange-400'>MyPockets</h1>
+      <ul className='m-1 p-2 space-y-3 text-white'>
         <li>home</li>
         <li>Investments</li>
         <li>Analytics</li>
@@ -12,8 +12,8 @@ function NavBar() {
         <li>History</li>
         <li>Tips</li>
       </ul>
-      <button>Settings</button>
-      <button>Log Out</button>
+      <button className='text-amber-100 mt-100 px-2'>Settings</button>
+      
     </nav>
   )
 }
