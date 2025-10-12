@@ -6,14 +6,14 @@ import userData from '../data/exchange.json';
 function Exchange() {
   
   return (
-    <div>
-      <h2>Forex Exchange</h2>
+    <section className="border-2 rounded-2xl p-2 space-y-3">
+      <h2 className="font-bold text-2xl">Forex Exchange</h2>
       <div>
         {userData.map((data) => (
           <ExchangeHeadings header={data.header} exchange={data.exchange} />
         ))}
       </div>
-    </div>
+    </section>
   );
 }
 
