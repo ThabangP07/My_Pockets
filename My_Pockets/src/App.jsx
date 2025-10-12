@@ -4,18 +4,18 @@ import Overview from "./components/Overview";
 import Transactions from "./components/Transactions"
 import NavBar from "./components/NavBar";
 import Greetings from "./components/Greetings";
-import Budget from "./pages/Budget";;
+import Budget from "./pages/Budget";
 
 function App() {
 
   return (
-    <div>
+    <div className="grid grid-cols-4 h-dvh bg-blue-200">
       <NavBar />
-      <main>
+      <main className="col-span-3">
         <header>
           <Greetings />
         </header>
-        <section>
+        <section className="grid grid-cols-2">
           <Overview />
           <Analytics />
           <Transactions />
