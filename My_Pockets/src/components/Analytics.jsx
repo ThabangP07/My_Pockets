@@ -5,7 +5,7 @@ function Analytics() {
   return (
     <section className="border-2 rounded-2xl p-2">
       <h2 className="font-bold text-2xl">Analytics</h2>
-      <div className="absolute right-0">
+      <div className="absolute right-3">
         <button className="border rounded-2xl p-2 ">6 Months</button>
         <button className="border rounded-2xl p-2">Year</button>
       </div>
