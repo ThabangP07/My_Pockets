@@ -11,7 +11,7 @@ function Transactions() {
       <p>Today</p>
       <div>
         {userData.map((data) => (
-          <TransactionItems store={data.store} price={data.price} />
+          <TransactionItems item={data.item} store={data.store} price={data.price} />
         ))}
       </div>
     </section>
