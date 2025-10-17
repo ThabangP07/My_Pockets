@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function TransactionInputForm() {
+function TransactionsInputForm() {
   const [formData, setFormData] = useState({
     item: "",
     shop: "",
@@ -66,4 +66,4 @@ function TransactionInputForm() {
   );
 }
 
-export default TransactionInputForm;
+export default TransactionsInputForm;
