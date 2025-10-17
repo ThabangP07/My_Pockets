@@ -1,3 +1,4 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Analytics from "./components/Analytics";
 import Exchange from "./components/Exchange";
 import Overview from "./components/Overview";
@@ -10,13 +11,26 @@ function App() {
 
   return (
     <div className="grid grid-cols-4 h-dvh bg-blue-200">
-      <NavBar />
+      <BrowserRouter>
+        <NavBar />
+        <Routes>
+          <Route path="/budget" element={<Budget />} />
+        </Routes>
+      </BrowserRouter>
+
       <main className="col-span-3">
         <header>
           <Greetings />
         </header>
         <section className="grid grid-cols-2 gap-2 mr-2">
-          <Overview heading1="Balance" heading2="Income" heading3="Expenses" amount1="R 2 000.00" amount2="R 15 000.00" amount3="R 7 000.00"/>
+          <Overview
+            heading1="Balance"
+            heading2="Income"
+            heading3="Expenses"
+            amount1="R 2 000.00"
+            amount2="R 15 000.00"
+            amount3="R 7 000.00"
+          />
           <Analytics />
           <Transactions />
           <Exchange />
