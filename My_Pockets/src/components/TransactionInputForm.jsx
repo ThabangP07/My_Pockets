@@ -15,8 +15,19 @@ function TransactionInputForm() {
     });
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Form submitted:", formData);
+    setFormData({
+      item: "",
+      shop: "",
+      price: "",
+    });
+  };
+  //will handle data storage later either to local storage or file
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <div>
         <label>Item: </label>
         <input
