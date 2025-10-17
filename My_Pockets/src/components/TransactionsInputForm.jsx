@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 function TransactionsInputForm() {
   const [formData, setFormData] = useState({
@@ -6,6 +6,26 @@ function TransactionsInputForm() {
     shop: "",
     price: "",
   });
+
+  const [transactions, setTransactions] = useState([]);
+  const [loading, setLoading] = useState(true);
+  
+  useEffect(() => {
+    const fetchData = async () => {
+    try {
+        const response = await fetch("/transaction.json");
+        if (!response.ok) throw new Error("Failed to load data");
+        const data = await response.json();
+        setTransactions(data);
+      } catch (error) {
+        console.error("Error loading transactions:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
