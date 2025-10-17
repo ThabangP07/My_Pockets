@@ -9,7 +9,7 @@ function TransactionsInputForm() {
 
   const [transactions, setTransactions] = useState([]);
   const [loading, setLoading] = useState(true);
-  
+
   useEffect(() => {
     const fetchData = async () => {
     try {
@@ -37,14 +37,20 @@ function TransactionsInputForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    setFormData({
-      item: "",
-      shop: "",
-      price: "",
-    });
+    // Add new transaction
+    const newTransactions = [...transactions, formData];
+    setTransactions(newTransactions);
+
+    // Save to local storage
+    localStorage.setItem("transactions", JSON.stringify(newTransactions));
+
+    // Reset form
+    setFormData({ item: "", store: "", price: "" });
   };
-  //will handle data storage later either to local storage or file
+
+   if (loading) {
+     return <p>Loading transactions...</p>;
+   }
 
   return (
     <form onSubmit={handleSubmit} className="border p-2 rounded-2xl shadow-md">
