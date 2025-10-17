@@ -27,10 +27,11 @@ function TransactionsInputForm() {
   //will handle data storage later either to local storage or file
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
+    <form onSubmit={handleSubmit} className="border p-2 rounded-2xl shadow-md">
+      <div className="m-2 w-full">
         <label>Item: </label>
         <input
+          className="border rounded"
           type="text"
           name="item"
           value={formData.item}
@@ -39,9 +40,10 @@ function TransactionsInputForm() {
         />
       </div>
 
-      <div>
+      <div className="m-2">
         <label>Shop: </label>
         <input
+          className="border rounded"
           type="text"
           name="shop"
           value={formData.shop}
@@ -50,18 +52,23 @@ function TransactionsInputForm() {
         />
       </div>
 
-      <div>
+      <div className="m-2 w-full">
         <label>Price: </label>
         <input
+          className="border rounded"
           type="number"
           name="price"
+          min="0"
+          step="0.01"
           value={formData.price}
           onChange={handleChange}
           required
         />
       </div>
 
-      <button type="submit">Submit</button>
+      <button className="border rounded-lg p-1 block mx-auto" type="submit">
+        Submit
+      </button>
     </form>
   );
 }
