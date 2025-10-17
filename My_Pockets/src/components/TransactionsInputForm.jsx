@@ -3,28 +3,24 @@ import React, { useState, useEffect } from "react";
 function TransactionsInputForm() {
   const [formData, setFormData] = useState({
     item: "",
-    shop: "",
-    price: "",
+    store: "",
+    price: "R",
   });
 
-  const [transactions, setTransactions] = useState([]);
-  const [loading, setLoading] = useState(true);
-
   useEffect(() => {
-    const fetchData = async () => {
-    try {
+    const loadTransactions = async () => {
+      try {
         const response = await fetch("/transaction.json");
-        if (!response.ok) throw new Error("Failed to load data");
         const data = await response.json();
-        setTransactions(data);
+
+        // Save directly to localStorage
+        localStorage.setItem("transactions", JSON.stringify(data));
       } catch (error) {
-        console.error("Error loading transactions:", error);
-      } finally {
-        setLoading(false);
+        console.error("Failed to load transactions:", error);
       }
     };
 
-    fetchData();
+    loadTransactions();
   }, []);
 
   const handleChange = (e) => {
@@ -38,19 +34,17 @@ function TransactionsInputForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Add new transaction
-    const newTransactions = [...transactions, formData];
-    setTransactions(newTransactions);
+   
+    const dataFromLocalStorage = JSON.parse(localStorage.getItem("transactions")) || [];
+    dataFromLocalStorage.push(formData)
 
     // Save to local storage
-    localStorage.setItem("transactions", JSON.stringify(newTransactions));
+    localStorage.setItem("transactions", JSON.stringify(dataFromLocalStorage));
 
     // Reset form
-    setFormData({ item: "", store: "", price: "" });
+    setFormData({ item: "", store: "", price: "R" });
   };
 
-   if (loading) {
-     return <p>Loading transactions...</p>;
-   }
 
   return (
     <form onSubmit={handleSubmit} className="border p-2 rounded-2xl shadow-md">
@@ -67,12 +61,12 @@ function TransactionsInputForm() {
       </div>
 
       <div className="m-2">
-        <label>Shop: </label>
+        <label>Store: </label>
         <input
           className="border rounded"
           type="text"
-          name="shop"
-          value={formData.shop}
+          name="store"
+          value={formData.store}
           onChange={handleChange}
           required
         />
