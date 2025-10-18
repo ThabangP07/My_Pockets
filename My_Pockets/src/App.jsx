@@ -2,13 +2,13 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Analytics from "./components/Analytics";
 import Exchange from "./components/Exchange";
 import Overview from "./components/Overview";
-import Transactions from "./components/Transactions"
+import Transactions from "./components/Transactions";
 import NavBar from "./components/NavBar";
 import Greetings from "./components/Greetings";
 import Budget from "./pages/Budget";
+import { BudgetProvider } from "./pages/BudgetContext";
 
 function App() {
-
   return (
     <BrowserRouter>
       <div className="grid grid-cols-4 h-dvh bg-blue-200">
@@ -42,7 +42,14 @@ function App() {
             />
 
             {/* Budget route */}
-            <Route path="/budget" element={<Budget />} />
+            <Route
+              path="/budget"
+              element={
+                <BudgetProvider>
+                  <Budget />
+                </BudgetProvider>
+              }
+            />
           </Routes>
         </main>
       </div>
@@ -50,4 +57,4 @@ function App() {
   );
 }
 
-export default App
+export default App;
