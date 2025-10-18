@@ -60,8 +60,11 @@ function BudgetCard({ heading, item, amount }) {
         </form>
       )}
 
-      <p>
-        Total: R #######
+      <p className="mt-2 font-semibold">
+        Total: R{" "}
+        {items.reduce((sum, curr) => sum + Number(curr.amount || 0), 0).toFixed(
+          2
+        )}
       </p>
     </div>
   );
