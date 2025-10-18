@@ -9,22 +9,22 @@ function Budget() {
         <BudgetCard
           heading={"Expected Income"}
           item={"Company A"}
-          amount={"R 2000"}
+          amount={"2000"}
         />
         <BudgetCard
           heading={"Monthly Subscriptions"}
           item={"Netflix"}
-          amount={"R 200"}
+          amount={"200"}
         />
         <BudgetCard
           heading={"Family Expenses"}
           item={"Grocery"}
-          amount={"R 1000"}
+          amount={"1000"}
         />
         <BudgetCard
           heading={"Loans and Insurances"}
           item={"Personal Loan"}
-          amount={"R 300"}
+          amount={"300"}
         />
       </div>
 

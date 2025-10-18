@@ -22,8 +22,8 @@ function BudgetCard({ heading, item, amount }) {
 
   return (
     <div className="border rounded-2xl p-2 m-4">
-      <div className="bg-amber-100 p-2 rounded-2xl flex justify-between">
-        <h4 className="font-bold">{heading}</h4>
+      <div className="bg-amber-100 p-2 rounded-2xl flex justify-between mb-2">
+        <h4 className="font-bold ">{heading}</h4>
         <button onClick={handleAddClick} className="border rounded-2xl p-2">
           {showForm ? "Cancel" : "Add"}
         </button>

@@ -2,9 +2,9 @@ import React from 'react'
 
 function BudgetCardItem({item, amount}) {
   return (
-    <div className='flex justify-between p-2'>
+    <div className='flex justify-between px-2 space-y-2'>
       <p className='font-bold italic'>{item}</p>
-      <p>{amount}</p>
+      <p>R {amount}</p>
     </div>
   );
 }
