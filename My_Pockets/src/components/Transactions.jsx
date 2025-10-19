@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { useState } from 'react';
-import userData from '../data/transaction.json'
+//import userData from '../data/transaction.json'
 import TransactionItems from './TransactionItems';
 import TransactionsInputForm from './TransactionsInputForm';
 
@@ -14,6 +14,7 @@ function Transactions() {
   const handleAddTransactionClick = () => {
     setShowForm(!showForm);
   }
+  const userData = JSON.parse(localStorage.getItem("transactions")) || [];
 
   return (
     <section className="border-2 rounded-2xl p-2 space-y-3">

@@ -4,23 +4,27 @@ function TransactionsInputForm() {
   const [formData, setFormData] = useState({
     item: "",
     store: "",
-    price: "R",
+    price: "",
   });
 
   useEffect(() => {
-    const loadTransactions = async () => {
-      try {
-        const response = await fetch("/transaction.json");
-        const data = await response.json();
+    // Only load from JSON once, when no transactions exist yet
+    const existingTransactions = JSON.parse(
+      localStorage.getItem("transactions")
+    );
+    if (!existingTransactions || existingTransactions.length === 0) {
+      const loadTransactions = async () => {
+        try {
+          const response = await fetch("/transaction.json");
+          const data = await response.json();
+          localStorage.setItem("transactions", JSON.stringify(data));
+        } catch (error) {
+          console.error("Failed to load transactions:", error);
+        }
+      };
 
-        // Save directly to localStorage
-        localStorage.setItem("transactions", JSON.stringify(data));
-      } catch (error) {
-        console.error("Failed to load transactions:", error);
-      }
-    };
-
-    loadTransactions();
+      loadTransactions();
+    }
   }, []);
 
   const handleChange = (e) => {
@@ -42,7 +46,7 @@ function TransactionsInputForm() {
     localStorage.setItem("transactions", JSON.stringify(dataFromLocalStorage));
 
     // Reset form
-    setFormData({ item: "", store: "", price: "R" });
+    setFormData({ item: "", store: "", price: "" });
   };
 
 
