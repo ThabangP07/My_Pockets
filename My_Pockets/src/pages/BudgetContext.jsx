@@ -13,8 +13,12 @@ export function BudgetProvider({ children }) {
 
   // Function to update a total for a specific card
   const updateTotal = (heading, total) => {
-    setTotals((prev) => ({ ...prev, [heading]: total }));
+    setTotals((prev) => {
+      if (prev[heading] === total) return prev; // no change, no re-render
+      return { ...prev, [heading]: total };
+    });
   };
+
 
   // Compute overall summary (income, expenses, balance, etc.)
   const income = totals["Expected Income"] || 0;

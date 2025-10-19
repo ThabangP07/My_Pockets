@@ -13,7 +13,9 @@ function BudgetCard({ heading, item, amount }) {
 
   useEffect(() => {
     updateTotal(heading, total);
-  }, [total, heading, updateTotal]);
+  }, [total, heading]);
+
+
 
   const handleAddClick = () => setShowForm(!showForm);
 
