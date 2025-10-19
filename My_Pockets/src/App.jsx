@@ -1,11 +1,12 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Analytics from "./components/Analytics";
-import Exchange from "./components/Exchange";
-import Overview from "./components/Overview";
-import Transactions from "./components/Transactions";
 import NavBar from "./components/NavBar";
 import Greetings from "./components/Greetings";
-import Footer from "./components/Footer"; 
+import Footer from "./components/Footer";
+import History from "./components/History";
+import Tips from "./components/Tips";
+import Home from "./components/Home";
+import Investment from "./components/Investment"; 
+import AnalyticsCom from "./components/AnalyticsCom";
 import Budget from "./pages/Budget";
 import { BudgetProvider } from "./pages/BudgetContext";
 
@@ -19,26 +20,18 @@ function App() {
             <Greetings />
             <Routes>
               {/* Home route */}
-              <Route
-                path="/"
-                element={
-                  <>
-                    <section className="grid grid-cols-2 gap-2 mr-2">
-                      <Overview
-                        heading1="Balance"
-                        heading2="Income"
-                        heading3="Expenses"
-                        amount1="R 2 000.00"
-                        amount2="R 15 000.00"
-                        amount3="R 7 000.00"
-                      />
-                      <Analytics />
-                      <Transactions />
-                      <Exchange />
-                    </section>
-                  </>
-                }
-              />
+              <Route path="/" element={<Home />} />
+              {/* Investment route */}
+              <Route path="/investments" element={<Investment />} />
+
+              {/* Analytics route */}
+              <Route path="/analytics" element={<AnalyticsCom />} />
+
+              {/* History route */}
+              <Route path="/history" element={<History />} />
+
+              {/* Tips route */}
+              <Route path="/tips" element={<Tips />} />
 
               {/* Budget route */}
               <Route
