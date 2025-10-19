@@ -1,7 +1,6 @@
 import React from "react";
 import BudgetCard from "./BudgetCard";
 import { useBudget } from "./BudgetContext";
-import Greetings from "../components/Greetings";
 
 function Budget() {
   const { income, expenses, balance } = useBudget();
@@ -9,7 +8,6 @@ function Budget() {
   return (
     
     <div className="m-4">
-      <Greetings />
       <h1 className="font-bold text-4xl text-center">Budget</h1>
       <div className="grid grid-cols-2">
         <BudgetCard heading="Expected Income" item="Company A" amount="2000" />
