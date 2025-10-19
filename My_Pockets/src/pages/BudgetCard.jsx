@@ -3,19 +3,18 @@ import BudgetCardItem from "./BudgetCardItem";
 import { useBudget } from "./BudgetContext";
 
 function BudgetCard({ heading, item, amount }) {
-  const [items, setItems] = useState([{ item, amount }]);
+  const { updateTotal, itemsByHeading, updateItems } = useBudget();
+  
+  const items = itemsByHeading[heading] || [{ item, amount }];
   const [showForm, setShowForm] = useState(false);
   const [formData, setFormData] = useState({ item: "", amount: "" });
 
-  const { updateTotal } = useBudget();
 
   const total = items.reduce((sum, curr) => sum + Number(curr.amount || 0), 0);
 
   useEffect(() => {
     updateTotal(heading, total);
   }, [total, heading]);
-
-
 
   const handleAddClick = () => setShowForm(!showForm);
 
@@ -26,7 +25,8 @@ function BudgetCard({ heading, item, amount }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setItems((prev) => [...prev, formData]);
+    const newItems = [...items, formData];
+    updateItems(heading, newItems); // Save to context
     setFormData({ item: "", amount: "" });
     setShowForm(false);
   };

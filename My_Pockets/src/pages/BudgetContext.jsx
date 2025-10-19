@@ -10,6 +10,7 @@ export function useBudget() {
 // Provider component
 export function BudgetProvider({ children }) {
   const [totals, setTotals] = useState({});
+  const [itemsByHeading, setItemsByHeading] = useState({});
 
   // Function to update a total for a specific card
   const updateTotal = (heading, total) => {
@@ -19,6 +20,10 @@ export function BudgetProvider({ children }) {
     });
   };
 
+  // Save all items for each category
+  const updateItems = (heading, newItems) => {
+    setItemsByHeading((prev) => ({ ...prev, [heading]: newItems }));
+  };
 
   // Compute overall summary (income, expenses, balance, etc.)
   const income = totals["Expected Income"] || 0;
@@ -30,7 +35,15 @@ export function BudgetProvider({ children }) {
 
   return (
     <BudgetContext.Provider
-      value={{ totals, updateTotal, income, expenses, balance }}
+      value={{
+        totals,
+        updateTotal,
+        income,
+        expenses,
+        balance,
+        itemsByHeading,
+        updateItems,
+      }}
     >
       {children}
     </BudgetContext.Provider>
