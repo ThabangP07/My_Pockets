@@ -9,7 +9,7 @@ function Home() {
 
   const { income, expenses, balance } = useBudget();
   return (
-      <section className="grid grid-cols-2 gap-2 mr-2">
+      <section className="grid grid-cols-1 md:grid-cols-2 gap-2 m-2">
         <Overview
           heading1="Balance"
           heading2="Income"

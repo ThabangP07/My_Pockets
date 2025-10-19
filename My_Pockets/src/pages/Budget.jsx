@@ -9,7 +9,7 @@ function Budget() {
     
     <div className="m-4">
       <h1 className="font-bold text-4xl text-center">Budget</h1>
-      <div className="grid grid-cols-2">
+      <div className="grid grid-cols-1 md:grid-cols-2">
         <BudgetCard heading="Expected Income" item="Company A" amount="2000" />
         <BudgetCard
           heading="Monthly Subscriptions"
