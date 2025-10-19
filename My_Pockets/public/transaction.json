@@ -1,7 +1,7 @@
 
-[{ "item": "iPhone", "store": "Amazon", "price": "R200.00" },
- { "item": "Paint", "store": "Walmart", "price": "R150.00" },
- { "item": "Watch", "store": "Ebay", "price": "R300.00" },
- { "item": "Bag", "store": "Target", "price": "R400.00" },
- { "item": "Gift Cards", "store": "Best Buy", "price": "R250.00" }
+[{ "item": "iPhone", "store": "Amazon", "price": "200.00" },
+ { "item": "Paint", "store": "Walmart", "price": "150.00" },
+ { "item": "Watch", "store": "Ebay", "price": "300.00" },
+ { "item": "Bag", "store": "Target", "price": "400.00" },
+ { "item": "Gift Cards", "store": "Best Buy", "price": "250.00" }
 ]
