@@ -35,13 +35,11 @@ function Analytics() {
       {/* chart area */}
       <div className="flex items-end justify-around h-64 mt-10 bg-white rounded-xl p-4 shadow-inner">
         {filteredData.map((item) => (
-          <div key={item.month} className="h-full">
             <AnalyticsChart
               key={item.month}
               month={item.month}
               amount={item.amount}
             />
-          </div>
         ))}
       </div>
     </section>
