@@ -13,36 +13,44 @@ import { BudgetProvider } from "./pages/BudgetContext";
 function App() {
   return (
     <BrowserRouter>
-      <BudgetProvider>
-        <div className="grid grid-cols-4 bg-blue-200 min-h-screen">
-          <NavBar />
-          <div className="col-span-3 flex flex-col justify-between ">
-            <main className="col-span-3">
-              <Greetings />
-              <Routes>
-                {/* Home route */}
-                <Route path="/" element={<Home />} />
-                {/* Investment route */}
-                <Route path="/investments" element={<Investment />} />
+    <BudgetProvider>
+      <div className="grid grid-cols-1 md:grid-cols-4 bg-blue-200 min-h-screen">
+        <NavBar className="md:col-span-1"/>
+        <div className="
+        col-span-1 md:col-span-3 flex flex-col justify-between">
+          <main className="flex-grow">
+            <Greetings />
+            <Routes>
+              {/* Home route */}
+              <Route path="/" element={<Home />} />
+              {/* Investment route */}
+              <Route path="/investments" element={<Investment />} />
 
-                {/* Analytics route */}
-                <Route path="/analytics" element={<AnalyticsCom />} />
+              {/* Analytics route */}
+              <Route path="/analytics" element={<AnalyticsCom />} />
 
-                {/* History route */}
-                <Route path="/history" element={<History />} />
+              {/* History route */}
+              <Route path="/history" element={<History />} />
 
-                {/* Tips route */}
-                <Route path="/tips" element={<Tips />} />
+              {/* Tips route */}
+              <Route path="/tips" element={<Tips />} />
 
-                {/* Budget route */}
-                <Route path="/budget" element={<Budget />} />
-              </Routes>
-            </main>
-            <footer className="bottom-0 p-4">
-              <Footer className="mt-2 p-4 text-center" />
-            </footer>
-          </div>
+              {/* Budget route */}
+              <Route
+                path="/budget"
+                element={
+                  
+                    <Budget />
+                  
+                }
+              />
+            </Routes>
+          </main>
+          <footer className="bottom-0 p-4">
+            <Footer className="mt-2 p-4 text-center" />
+          </footer>
         </div>
+      </div>
       </BudgetProvider>
     </BrowserRouter>
   );
